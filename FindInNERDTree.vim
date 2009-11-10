@@ -1,8 +1,9 @@
 " FindInNERDTree
 "
-" Description: Plugin for running a single Ruby test under the cursor
-"              Supports TestUnit and Rspec
-" Last Change: Oct 20, 2009
+" Description: Moves the cursor to the node in the NERDTree that
+"              represents the current file.  Will open directories
+"              to find it.
+" Last Change: 11/9/09
 " Version: 1.0
 " Author:	Doug McInnes <doug@dougmcinnes.com>
 " URL: http://github.com/dmcinnes/find_in_nerd_tree/tree
