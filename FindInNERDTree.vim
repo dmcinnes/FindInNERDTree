@@ -35,8 +35,9 @@ function! FindInNERDTree(...)
 
   if l:root.path.compareTo(l:path) == 0
     return l:root.findNode(l:path)
-  elseif l:path.str() == g:NERDTreePath.Slash()
+  elseif l:path.str() !~ '^' . l:root.path.str()
     echo "Not in the current NERD tree!"
+    return 0
   else
     let l:node = FindInNERDTree(l:path.getParent())
     if !empty(l:node)
