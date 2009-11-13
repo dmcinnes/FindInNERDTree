@@ -15,14 +15,19 @@ function! FindInNERDTree(...)
   if a:0
     let l:path = a:1
   else
-    let l:path = g:NERDTreePath.New(bufname('%'))
-
     let l:nerdbuf = 0
     for item in tabpagebuflist()
       if bufname(item) =~ "^NERD_tree_"
         let l:nerdbuf = item
       endif
     endfor
+
+    if l:nerdbuf == bufnr('%')
+      " already in the tree
+      return 0
+    endif
+
+    let l:path = g:NERDTreePath.New(bufname('%'))
 
     if l:nerdbuf
 			silent! exec bufwinnr(l:nerdbuf) . "wincmd w"
